@@ -11,13 +11,14 @@ public class Counter
     * where the index+1 corresponds to the target integer.  
     * 
     * @param arr the ArrayList
+    * @param numOfFaces the number of faces on each die
     * 
     * @return the array containing count frequencies for each integer
     */
-   public int[] countAllFrequencies(ArrayList<Integer> arr)
+   public int[] countAllFrequencies(ArrayList<Integer> arr, int numOfFaces)
    {
       // each arr index corresponds to face value holding freq counts
-      int[] resultArr = new int[arr.size()];
+      int[] resultArr = new int[numOfFaces];
       
       for (int i = 0; i < resultArr.length; i++)
       {
@@ -36,7 +37,7 @@ public class Counter
     * 
     * @return the number of equivalent matching integers in ArrayList
     */
-   public static int countTargetFrequency(ArrayList<Integer> arr, int target)
+   public int countTargetFrequency(ArrayList<Integer> arr, int target)
    {
       int count = 0;
       

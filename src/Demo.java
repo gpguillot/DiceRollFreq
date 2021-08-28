@@ -5,11 +5,11 @@ import java.util.ArrayList;
  */
 public class Demo 
 {
-   private int n;   // number of die to roll
+   private int numDieToRoll;   
 
    public static void main(String[] args) 
    {
-      Demo demo = new Demo(25);
+      Demo demo = new Demo(5);
       demo.run();
    }
    
@@ -20,7 +20,7 @@ public class Demo
     */
    public Demo(int n)
    {
-      this.n = n;
+      this.numDieToRoll = n;
    }
    
    /*
@@ -28,24 +28,25 @@ public class Demo
     */
    public void run()
    {
-      Cup cup = new Cup(this.n);
-      System.out.println("Tossing cup of " + this.n + " die...");
+      Cup cup = new Cup(this.numDieToRoll);
+      System.out.println("Tossing cup of " + this.numDieToRoll + " die...");
       cup.toss();
       System.out.print("Ok, the face values are: ");
       cup.printResults();
+      
       
       System.out.println("\nNow, Let's tally up the frequency table...");
       Counter counter = new Counter();
       ArrayList<Integer> results = counter.extractFaceValues(cup.getDice());
       
       System.out.println("Aaaaand here it is...");
-      int[] r = counter.countAllFrequencies(results);
+      int numOfFaces = cup.getDice().get(0).getNUMFACES();
+      int[] r = counter.countAllFrequencies(results, numOfFaces);
       
       System.out.println("-----------");
       System.out.println("Face" + " | " + "Freq");
       System.out.println("-----------");
       
-      int numOfFaces = cup.getDice().get(1).getNUMFACES();
       for (int i = 0; i < numOfFaces; i++)
       {
          System.out.println("   " + (i + 1) + " | " + r[i]);

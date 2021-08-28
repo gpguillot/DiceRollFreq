@@ -67,7 +67,7 @@ public class Cup
       {
          Die die = new Die();
          die.roll();
-         dice.add(die);
+         this.dice.add(die);
       }
 
       return this.dice;
